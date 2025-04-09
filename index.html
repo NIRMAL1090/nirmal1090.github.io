@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="3; URL='https://nirmal.social'" />
+    <title>Redirecting to nirmal.social</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --secondary: #9333ea;
+        --accent: #06b6d4;
+        --text-primary: #121212;
+        --text-secondary: #374151;
+        --bg-light: #ffffff;
+        --bg-dark: #0f172a;
+        --shadow-color: rgba(79, 70, 229, 0.15);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --text-primary: #f1f5f9;
+          --text-secondary: #cbd5e1;
+          --bg-light: #0f172a;
+          --bg-dark: #020617;
+          --shadow-color: rgba(79, 70, 229, 0.3);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      @keyframes gradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      @keyframes floatEffect {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(1deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+
+      @keyframes loader {
+        0% { width: 0%; }
+        100% { width: 100%; }
+      }
+
+      html {
+        height: 100%;
+        font-size: 16px;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(-45deg, #0ea5e9, #4f46e5, #9333ea, #ec4899);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+        color: var(--text-primary);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.5;
+      }
+
+      .shape {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(8px);
+      }
+
+      .shape-1 {
+        top: 20%;
+        left: 10%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(var(--accent), transparent 70%);
+        animation: floatEffect 20s ease-in-out infinite;
+      }
+
+      .shape-2 {
+        bottom: 10%;
+        right: 15%;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(var(--secondary), transparent 70%);
+        animation: floatEffect 25s ease-in-out infinite reverse;
+      }
+
+      .container {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 3rem;
+        border-radius: 24px;
+        box-shadow: 0 15px 35px var(--shadow-color),
+                    0 3px 10px rgba(0, 0, 0, 0.1),
+                    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+        max-width: 480px;
+        width: 90%;
+        transition: all 0.3s ease;
+        animation: floatEffect 6s ease-in-out infinite;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        overflow: hidden;
+      }
+
+      .container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 45px var(--shadow-color),
+                    0 5px 15px rgba(0, 0, 0, 0.15),
+                    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+      }
+
+      .logo {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, var(--accent), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.02em;
+      }
+
+      h1 {
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, #fff, #e0e7ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      p {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .redirect-link {
+        display: inline-block;
+        color: var(--bg-light);
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+        padding: 0.75rem 2rem;
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        box-shadow: 0 8px 16px rgba(79, 70, 229, 0.3);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        transform: translateZ(0);
+      }
+
+      .redirect-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+      }
+
+      .redirect-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 20px rgba(79, 70, 229, 0.4);
+      }
+
+      .redirect-link:hover::before {
+        opacity: 1;
+      }
+
+      .redirect-link:active {
+        transform: translateY(0);
+      }
+
+      .progress-container {
+        width: 100%;
+        height: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        margin-top: 2rem;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        border-radius: 4px;
+        animation: loader 3s linear forwards;
+      }
+
+      .redirect-text {
+        margin-top: 1rem;
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .redirect-text svg {
+        margin-right: 0.5rem;
+        animation: pulse 1.5s infinite ease-in-out;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 2rem;
+          width: 95%;
+        }
+        
+        h1 {
+          font-size: 1.5rem;
+        }
+        
+        p {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+    
+    <div class="container">
+      <div class="logo">N</div>
+      <h1>Redirecting to nirmal.social</h1>
+      <p>We're taking you to your destination in just a moment.</p>
+      
+      <a href="https://nirmal.social" class="redirect-link">Go Now</a>
+      
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+      
+      <div class="redirect-text">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.5 7H11V13L16.2 16.2L17 14.9L12.5 12.2V7Z" fill="rgba(255, 255, 255, 0.8)"/>
+        </svg>
+        Automatic redirect in 3 seconds
+      </div>
+    </div>
+
+    <script>
+      // Create animated background particles
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.querySelector('body');
+        
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement('div');
+          particle.style.position = 'absolute';
+          particle.style.width = `${Math.random() * 5 + 1}px`;
+          particle.style.height = particle.style.width;
+          particle.style.background = 'rgba(255, 255, 255, 0.5)';
+          particle.style.borderRadius = '50%';
+          particle.style.left = `${Math.random() * 100}vw`;
+          particle.style.top = `${Math.random() * 100}vh`;
+          particle.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.8)';
+          particle.style.zIndex = '1';
+          
+          // Animation
+          particle.style.animation = `floatEffect ${Math.random() * 10 + 10}s linear infinite`;
+          particle.style.opacity = Math.random() * 0.5 + 0.1;
+          
+          container.appendChild(particle);
+        }
+      });
+    </script>
+  </body>
+</html>
